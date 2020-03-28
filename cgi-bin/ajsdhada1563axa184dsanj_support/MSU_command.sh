@@ -52,6 +52,8 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/MSU/sku_inventory.sh" c
 
 #echo  '<div class="vertical-menu"></div><a href="/cgi-bin/MSU/add_rack.sh" class="active"><b>Add New Rack</b></a>'
 
+echo '<div class="vertical-menu"></div><a href="/cgi-bin/MSU/put_block.sh" class="active"><b>Block the rack from Put</b></a>'
+
 echo '</body>'
 echo '</html>'
 

@@ -65,6 +65,8 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/butler/get_camera.sh" c
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/butler/init_all_butler.sh" class="active"><b>Send Init to All Butler</b></a>'
 
+echo '<div class="vertical-menu"></div><a href="/cgi-bin/butler/clear_reservation.sh" class="active"><b>Clear Reservation of butler</b></a>'
+
 echo '</body>'
 echo '</html>'
 

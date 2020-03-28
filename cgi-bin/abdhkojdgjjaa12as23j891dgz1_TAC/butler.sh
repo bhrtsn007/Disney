@@ -67,6 +67,7 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/butler/init_all_butler.
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/butler/mdu_update.sh" class="active"><b>MDU Update of any Butler</b></a>'
 
+echo '<div class="vertical-menu"></div><a href="/cgi-bin/butler/clear_reservation.sh" class="active"><b>Clear Reservation of butler</b></a>'
 
 echo '</body>'
 echo '</html>'
