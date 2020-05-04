@@ -56,9 +56,9 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/specific_order.sh
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/order_task_details.sh" class="active"><b>Task Details from Order</b></a>'
 
-echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/unfulfillable_order_report.sh" class="active"><b>Get Unfulfillable Order Report</b></a>'
+#echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/unfulfillable_order_report.sh" class="active"><b>Get Unfulfillable Order Report</b></a>'
 
-echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/process_unfulfillable_order.sh" class="active"><b>Process Unfulfillable Order</b></a>'
+#echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/process_unfulfillable_order.sh" class="active"><b>Process Unfulfillable Order</b></a>'
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/cancel_order.sh" class="active"><b>Cancel Order manually</b></a>'
 
