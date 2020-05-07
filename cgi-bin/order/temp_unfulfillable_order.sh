@@ -1,6 +1,6 @@
 #!/bin/bash
 temp_unfulfillable_order () {
-    echo "Temporary Unfulfillable report fot order id"
+    echo "Temporary Unfulfillable report for order id"
     echo "<br>"
     echo '<pre>'
     sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript station_recovery get_temporary_unfulfillable_orders "[<<\"$1\">>]."
