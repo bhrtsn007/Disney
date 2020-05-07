@@ -46,7 +46,9 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/internal_order_id
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/order_from_core_platform.sh" class="active"><b>Get Order Status from Core and Platform</b></a>'
 
-echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/cancel_order.sh" class="active"><b>Cancel Order manually</b></a>'
+echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/all_temp_unfullilable_order.sh" class="active"><b>All Temp_unfullilable Order</b></a>'
+
+echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/temp_unfulfillable_order.sh" class="active"><b>Temporary unfulfillable order detail</b></a>'
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/specific_order.sh" class="active"><b>Order Details(External Id from Internal ID)</b></a>'
 
