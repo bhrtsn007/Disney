@@ -1,8 +1,11 @@
 #!/bin/bash
-abandon_order () {
-    echo "Abandoning Order : <<'$1'>>........... "
+pick_instruction () {
     echo "<br>"
-    sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript station_recovery abandon_order "[<<\"$1\">>]."
+    echo "Pick instruction for Order id:" $1
+    echo "<br>"
+    echo '<pre>'
+    sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript pick_instruction search_by "[[{'order_id', 'equal', <<\"$1\">>}], 'record']."
+    echo '</pre>'
 }
 echo "Content-type: text/html"
 echo ""
@@ -10,7 +13,7 @@ echo ""
 echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
-echo '<title>Abandon Any Order</title>'
+echo '<title>All pick instruction</title>'
 echo '</head>'
 echo '<body style="background-color:#B8B8B8">'
 
@@ -40,7 +43,7 @@ echo "<br>"
   fi
 
   # If no search arguments, exit gracefully now.
-  #echo "$QUERY_STRING<br>"
+  echo "$QUERY_STRING<br>"
   echo "<br>"
   if [ -z "$QUERY_STRING" ]; then
         exit 0
@@ -50,7 +53,7 @@ echo "<br>"
 	
      echo "ORDER_ID: " $XX
      echo '<br>'
-     abandon_order $XX 
+     pick_instruction $XX 
   fi
 echo '</body>'
 echo '</html>'

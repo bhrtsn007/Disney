@@ -1,8 +1,11 @@
 #!/bin/bash
-sideline_order () {
-    echo "Removing ORDER_ID : <<'$1'>> from order_manager"
+put_notification () {
+    echo "Sending put notification for put Id : <<'$1'>>"
     echo "<br>"
-    sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript order_manager remove_order "[<<\"$1\">>]."
+    echo '<pre>'
+    sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript station_recovery send_notification "[{'put_complete',<<\"$1\">>}]."
+    echo '</pre>'
+
 }
 echo "Content-type: text/html"
 echo ""
@@ -10,7 +13,7 @@ echo ""
 echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
-echo '<title>Remove Order</title>'
+echo '<title>Send Put notification</title>'
 echo '</head>'
 echo '<body style="background-color:#B8B8B8">'
 
@@ -24,7 +27,7 @@ echo "<br>"
 
   echo "<form method=GET action=\"${SCRIPT}\">"\
        '<table nowrap>'\
-          '<tr><td>ORDER_ID</TD><TD><input type="number" name="ORDER_ID" size=12></td></tr>'\
+          '<tr><td>PUT_ID</TD><TD><input type="number" name="PUT_ID" size=12></td></tr>'\
 		  '</tr></table>'
 
   echo '<br><input type="submit" value="SUBMIT">'\
@@ -48,9 +51,9 @@ echo "<br>"
    # No looping this time, just extract the data you are looking for with sed:
      XX=`echo "$QUERY_STRING" | sed -r 's/([^0-9]*([0-9]*)){1}.*/\2/'`
 	
-     echo "ORDER_ID: " $XX
+     echo "Put_ID: " $XX
      echo '<br>'
-     sideline_order $XX 
+     put_notification $XX  
   fi
 echo '</body>'
 echo '</html>'

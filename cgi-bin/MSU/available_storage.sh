@@ -1,10 +1,10 @@
 #!/bin/bash
-all_pps_seat () {
-    echo "ALL PPS Seat Data"
+available_storage () {
+    echo "All available storable location"
     echo "<br>"
-    echo '<pre>'
-    sudo /opt/butler_server/bin/butler_server rpcterms pps_seat get_all 
-    echo '</pre>'
+    sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript storage_info search_by "[[{'status', 'equal', 'available'}], 'record']."
+    echo "<br>"
+    echo "DONE"
 }
 echo "Content-type: text/html"
 echo ""
@@ -12,7 +12,7 @@ echo ""
 echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
-echo '<title>ALL PPS Seat INFO</title>'
+echo '<title>Remove Order</title>'
 echo '</head>'
 echo '<body style="background-color:#B8B8B8">'
 
@@ -23,10 +23,7 @@ echo "<br>"
 echo "<br>"
 echo "<br>"
 echo "<br>"
-
-echo "All PPS Seat Info:-"
-all_pps_seat    
-     
+available_storage
 echo '</body>'
 echo '</html>'
 

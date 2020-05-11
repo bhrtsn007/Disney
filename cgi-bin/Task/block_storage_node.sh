@@ -1,9 +1,18 @@
 #!/bin/bash
-change_to_abandoned () {
-    echo "Changing Status of Order ID : $1 to abandoned"
+block_storage_node () {
+    echo "All Blocked Slots because of Audit"
     echo "<br>"
-    sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript order_node update_columns_by_id "[<<\"$1\">>,[{'status','abandoned'}]]."
-
+    if [ "$1" -eq "1" ]; then
+      echo '<pre>'
+      sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript storage_node search_by "[[{'properties', 'equal', #{audit_marked => true}}], 'key']."
+      echo '</pre>'
+    elif [ "$1" -eq "2" ]; then
+      echo '<pre>'
+      sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript storage_node search_by "[[{'properties', 'equal', #{audit_marked => true}}], 'record']."
+      echo '</pre>'
+    else 
+        echo "Wrong Key pressed"
+    fi  
 }
 echo "Content-type: text/html"
 echo ""
@@ -11,7 +20,7 @@ echo ""
 echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
-echo '<title>Change Order Status to Abandon</title>'
+echo '<title>Blocked Storage node (Audit)</title>'
 echo '</head>'
 echo '<body style="background-color:#B8B8B8">'
 
@@ -25,7 +34,7 @@ echo "<br>"
 
   echo "<form method=GET action=\"${SCRIPT}\">"\
        '<table nowrap>'\
-          '<tr><td>ORDER_ID</TD><TD><input type="number" name="ORDER_ID" size=12></td></tr>'\
+		  '<tr><td>Type 1 for key and 2 for record</TD><TD><input type="number" name="Type 1 for key and 2 for record" size=12></td></tr>'\
 		  '</tr></table>'
 
   echo '<br><input type="submit" value="SUBMIT">'\
@@ -47,11 +56,11 @@ echo "<br>"
         exit 0
   else
    # No looping this time, just extract the data you are looking for with sed:
-     XX=`echo "$QUERY_STRING" | sed -r 's/([^0-9]*([0-9]*)){1}.*/\2/'`
+     XX=`echo "$QUERY_STRING" | sed -n 's/^.*record=\([^ ]*\).*$/\1/p'`
 	
-     echo "ORDER_ID: " $XX
+	   echo "Type 1 for key and 2 for record: " $XX
      echo '<br>'
-     change_to_abandoned $XX   
+     block_storage_node $XX   
   fi
 echo '</body>'
 echo '</html>'

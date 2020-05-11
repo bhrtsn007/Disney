@@ -1,18 +1,14 @@
 #!/bin/bash
-pps_seat_pps () {
-    echo "PPS Seat data for PPS_ID : $1"
+change_status_to_storing () {
+    echo "Change Taskkey : <<'$1'>> to storing"
     echo "<br>"
     if [ "$2" -eq "1" ]; then
-      echo '<pre>'
-       sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript pps_seat search_by "[[{'pps_id', 'equal', $1}], 'key']."
-       echo '</pre>'
+        sudo /opt/butler_server/erts-9.3.3.8/bin/escript /home/gor/rpc_call.escript butler_task_functions set_task_status "[{'picktask',<<\"$1\">>},{'pending','storing'},'undefined']."
     elif [ "$2" -eq "2" ]; then
-      echo '<pre>'
-       sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript pps_seat search_by "[[{'pps_id', 'equal', $1}], 'record']."
-       echo '</pre>'
-    else 
-        echo "Wrong Key pressed"
-    fi
+        sudo /opt/butler_server/erts-9.3.3.8/bin/escript /home/gor/rpc_call.escript butler_task_functions set_task_status "[{'audittask',<<\"$1\">>},{'pending','storing'},'undefined']."
+    else
+        echo "Wrong key pressed"
+    fi        
 }
 echo "Content-type: text/html"
 echo ""
@@ -20,7 +16,7 @@ echo ""
 echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
-echo '<title>PPS Seat By ID</title>'
+echo '<title>Change Task status to storing</title>'
 echo '</head>'
 echo '<body style="background-color:#B8B8B8">'
 
@@ -34,8 +30,8 @@ echo "<br>"
 
   echo "<form method=GET action=\"${SCRIPT}\">"\
        '<table nowrap>'\
-          '<tr><td>PPS_ID</TD><TD><input type="number" name="PPS_ID" size=12></td></tr>'\
-		  '<tr><td>Type 1 for key 2 for record</TD><TD><input type="number" name="Type 1 for key 2 for record" size=12></td></tr>'\
+          '<tr><td>Task_key</TD><TD><input type="text" name="Task_key" size=12></td></tr>'\
+		  '<tr><td>Type 1 for picktask and 2 for audittask</TD><TD><input type="number" name="Type 1 for picktask and 2 for audittask" size=12></td></tr>'\
 		  '</tr></table>'
 
   echo '<br><input type="submit" value="SUBMIT">'\
@@ -57,14 +53,14 @@ echo "<br>"
         exit 0
   else
    # No looping this time, just extract the data you are looking for with sed:
-     XX=`echo "$QUERY_STRING" | sed -r 's/([^0-9]*([0-9]*)){1}.*/\2/'`
-	 YY=`echo "$QUERY_STRING" | sed -r 's/([^0-9]*([0-9]*)){4}.*/\2/'`
+     XX=`echo "$QUERY_STRING" | sed -n 's/^.*Task_key=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
+   YY=`echo "$QUERY_STRING" | sed -n 's/^.*audittask=\([^ ]*\).*$/\1/p'`
 	
-     echo "PPS_ID: " $XX
+     echo "Task_key: " $XX
      echo '<br>'
-	   echo "Type 1 for key 2 for record: " $YY
+	   echo "Type 1 for picktask and 2 for audittask: " $YY
      echo '<br>'
-     pps_seat_pps $XX $YY
+     change_status_to_storing $XX $YY  
   fi
 echo '</body>'
 echo '</html>'

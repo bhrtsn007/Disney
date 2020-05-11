@@ -1,18 +1,10 @@
 #!/bin/bash
-audit_task_started () {
-    echo "All Audit task on PPS which is in started"
+reservation_info () {
+    echo "Reservation Info"
     echo "<br>"
-    if [ "$2" -eq "1" ]; then
-      echo '<pre>'
-       sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript audittaskrec search_by "[[{'pps_id', 'equal',$1},{'status', 'equal', {'pending','started'}}], 'key']."
-       echo '</pre>'
-    elif [ "$2" -eq "2" ]; then
-      echo '<pre>'
-       sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript audittaskrec search_by "[[{'pps_id', 'equal',$1},{'status', 'equal', {'pending','started'}}], 'record']."
-       echo '</pre>'
-    else 
-        echo "Wrong Key pressed"
-    fi
+    echo '<pre>'
+    sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript reservationinfo get_by_id "[{$1,$2}]."
+    echo '</pre>'
 }
 echo "Content-type: text/html"
 echo ""
@@ -20,7 +12,7 @@ echo ""
 echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
-echo '<title>Specific audit Task on PPS for status started</title>'
+echo '<title>Reservation Info</title>'
 echo '</head>'
 echo '<body style="background-color:#B8B8B8">'
 
@@ -31,12 +23,13 @@ echo "<br>"
 echo "<br>"
 echo "<br>"
 echo "<br>"
-
+echo "Type Coordinates on which you want to check( For ex:- If barcode is 032.054 then X-> 54 and Y-> 32"
+echo "<br>"
   echo "<form method=GET action=\"${SCRIPT}\">"\
        '<table nowrap>'\
-          '<tr><td>PPS_ID</TD><TD><input type="number" name="PPS_ID" size=12></td></tr>'\
-		  '<tr><td>Type 1 for key and 2 for record</TD><TD><input type="number" name="Type 1 for key and 2 for record" size=12></td></tr>'\
-		  '</tr></table>'
+          '<tr><td>X_Coordinate</TD><TD><input type="number" name="X_Coordinate" size=12></td></tr>'\
+	  '<tr><td>Y_Coordinate</TD><TD><input type="number" name="Y_Coordinate" size=12></td></tr>'\
+          '</tr></table>'
 
   echo '<br><input type="submit" value="SUBMIT">'\
        '<input type="reset" value="Reset"></form>'
@@ -58,16 +51,13 @@ echo "<br>"
   else
    # No looping this time, just extract the data you are looking for with sed:
      XX=`echo "$QUERY_STRING" | sed -r 's/([^0-9]*([0-9]*)){1}.*/\2/'`
-	   YY=`echo "$QUERY_STRING" | sed -n 's/^.*record=\([^ ]*\).*$/\1/p'`
-	
-     echo "PPS_ID: " $XX
+     YY=`echo "$QUERY_STRING" | sed -r 's/([^0-9]*([0-9]*)){2}.*/\2/'`
+	      
+     echo "X_Coordinate: " $XX
      echo '<br>'
-	   echo "Type 1 for key and 2 for record: " $YY
+     echo "Y_Coordinate: " $YY
      echo '<br>'
-     audit_task_started $XX $YY
-
- #audit task started $XX $YY
-     
+     reservation_info $XX $YY
   fi
 echo '</body>'
 echo '</html>'

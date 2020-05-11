@@ -20,7 +20,7 @@ echo ""
 echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
-echo '<title>Get all pending auditline rec</title>'
+echo '<title>Audit rec on PPS </title>'
 echo '</head>'
 echo '<body style="background-color:#B8B8B8">'
 

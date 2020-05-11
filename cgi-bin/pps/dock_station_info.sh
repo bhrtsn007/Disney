@@ -1,18 +1,10 @@
 #!/bin/bash
-pps_task_rackpicked_system () {
-    echo "These all PPS Task are {pending,rack_picked} in the system"
+dock_station_info () {
+    echo "Dock station info for PPS_ID : $1"
     echo "<br>"
-    if [ "$1" -eq "1" ]; then
-      echo '<pre>'
-       sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript ppstaskrec search_by "[[{'status', 'equal', {'pending','rack_picked'}}], 'key']."
-       echo '</pre>'
-    elif [ "$1" -eq "2" ]; then
-      echo '<pre>'
-       sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript ppstaskrec search_by "[[{'status', 'equal', {'pending','rack_picked'}}], 'record']."
-       echo '</pre>'
-    else 
-        echo "Wrong Key pressed"
-    fi
+    echo '<pre>'
+    sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript dock_station_info search_by "[[{'pps_id', 'equal', $1}], 'record']."
+    echo '</pre>'
 }
 echo "Content-type: text/html"
 echo ""
@@ -20,7 +12,7 @@ echo ""
 echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
-echo '<title>All PPS Task for status rack_picked in system</title>'
+echo '<title>PPS INFO BY ID</title>'
 echo '</head>'
 echo '<body style="background-color:#B8B8B8">'
 
@@ -34,7 +26,7 @@ echo "<br>"
 
   echo "<form method=GET action=\"${SCRIPT}\">"\
        '<table nowrap>'\
-		  '<tr><td>Type 1 for key and 2 for record</TD><TD><input type="number" name="Type 1 for key and 2 for record" size=12></td></tr>'\
+          '<tr><td>PPS_ID</TD><TD><input type="number" name="PPS_ID" size=12></td></tr>'\
 		  '</tr></table>'
 
   echo '<br><input type="submit" value="SUBMIT">'\
@@ -56,13 +48,11 @@ echo "<br>"
         exit 0
   else
    # No looping this time, just extract the data you are looking for with sed:
-     XX=`echo "$QUERY_STRING" | sed -n 's/^.*record=\([^ ]*\).*$/\1/p'`
+     XX=`echo "$QUERY_STRING" | sed -r 's/([^0-9]*([0-9]*)){1}.*/\2/'`
 	
-	   echo "Type 1 for key and 2 for record: " $XX
+     echo "PPS_ID: " $XX
      echo '<br>'
-      pps_task_rackpicked_system $XX
-
- #pps task rack_picked $XX 
+     dock_station_info $XX    
      
   fi
 echo '</body>'

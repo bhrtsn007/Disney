@@ -1,10 +1,12 @@
 #!/bin/bash
-all_empty_bin () {
-    echo "These all Bins are Empty as per order manager"
+breach_order () {
+    echo "No. of PBT breached orders"
     echo "<br>"
-    echo '<pre>'
-    sudo /opt/butler_server/bin/butler_server rpcterms order_manager get_min_free_ppsbins_list
+    echo '<pre>'   
+    sudo /opt/butler_server/bin/butler_server rpcterms pps_orderlines print_pbt_summary_without_pending_inventory
     echo '</pre>'
+    echo "<br>"
+    echo "DONE"
 }
 echo "Content-type: text/html"
 echo ""
@@ -12,7 +14,7 @@ echo ""
 echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
-echo '<title>All Empty Bin in System</title>'
+echo '<title>PBT breach order</title>'
 echo '</head>'
 echo '<body style="background-color:#B8B8B8">'
 
@@ -23,9 +25,7 @@ echo "<br>"
 echo "<br>"
 echo "<br>"
 echo "<br>"
-
-all_empty_bin   
-     
+breach_order
 echo '</body>'
 echo '</html>'
 

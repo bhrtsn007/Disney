@@ -1,18 +1,14 @@
 #!/bin/bash
-audit_task_started_system () {
-    echo "All Audit task which is in started in the system"
+change_status_to_rack_picked () {
+    echo "Change Taskkey : <<'$1'>> to rack_picked"
     echo "<br>"
-    if [ "$1" -eq "1" ]; then
-      echo '<pre>'
-       sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript audittaskrec search_by "[[{'status', 'equal', {'pending','started'}}], 'key']."
-       echo '</pre>'
-    elif [ "$1" -eq "2" ]; then
-      echo '<pre>'
-       sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript audittaskrec search_by "[[{'status', 'equal', {'pending','started'}}], 'record']."
-       echo '</pre>'
-    else 
-        echo "Wrong Key pressed"
-    fi
+    if [ "$2" -eq "1" ]; then
+        sudo /opt/butler_server/erts-9.3.3.8/bin/escript /home/gor/rpc_call.escript butler_task_functions set_task_status "[{'picktask',<<\"$1\">>},{'pending','rack_picked'},'undefined']."
+    elif [ "$2" -eq "2" ]; then
+        sudo /opt/butler_server/erts-9.3.3.8/bin/escript /home/gor/rpc_call.escript butler_task_functions set_task_status "[{'audittask',<<\"$1\">>},{'pending','rack_picked'},'undefined']."
+    else
+        echo "Wrong key pressed"
+    fi        
 }
 echo "Content-type: text/html"
 echo ""
@@ -20,7 +16,7 @@ echo ""
 echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
-echo '<title>All audit Task for status started in system</title>'
+echo '<title>Change Task status to rack_picked</title>'
 echo '</head>'
 echo '<body style="background-color:#B8B8B8">'
 
@@ -34,7 +30,8 @@ echo "<br>"
 
   echo "<form method=GET action=\"${SCRIPT}\">"\
        '<table nowrap>'\
-		  '<tr><td>Type 1 for key and 2 for record</TD><TD><input type="number" name="Type 1 for key and 2 for record" size=12></td></tr>'\
+          '<tr><td>Task_key</TD><TD><input type="text" name="Task_key" size=12></td></tr>'\
+		  '<tr><td>Type 1 for picktask and 2 for audittask</TD><TD><input type="number" name="Type 1 for picktask and 2 for audittask" size=12></td></tr>'\
 		  '</tr></table>'
 
   echo '<br><input type="submit" value="SUBMIT">'\
@@ -56,11 +53,14 @@ echo "<br>"
         exit 0
   else
    # No looping this time, just extract the data you are looking for with sed:
-     XX=`echo "$QUERY_STRING" | sed -n 's/^.*record=\([^ ]*\).*$/\1/p'`
+     XX=`echo "$QUERY_STRING" | sed -n 's/^.*Task_key=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
+   YY=`echo "$QUERY_STRING" | sed -n 's/^.*audittask=\([^ ]*\).*$/\1/p'`
 	
-	   echo "Type 1 for key and 2 for record: " $XX
+     echo "Task_key: " $XX
      echo '<br>'
-    audit_task_started_system $XX
+	   echo "Type 1 for picktask and 2 for audittask: " $YY
+     echo '<br>'
+     change_status_to_rack_picked $XX $YY  
   fi
 echo '</body>'
 echo '</html>'
