@@ -40,6 +40,7 @@ echo "<br>"
 #################################################################
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/ppstaskrec_id.sh" class="active" target="_blank"><b>Specific PPS taskrec</b></a>' 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/pick_task_pending_pps.sh" class="active" target="_blank"><b>All pending pick task on PPS</b></a>' 
+echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/pick_task_on_pps_with_order_id.sh" class="active" target="_blank"><b>All pending pick task on PPS with Order id details</b></a>' 
 echo '<div style="position: relative;"><a href="/cgi-bin/Task/pps_task_pending_system.sh" class="active" target="_blank"><b> All pending pick task in the system</b></a>' 
 
 #################################################################

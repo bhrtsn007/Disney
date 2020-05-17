@@ -1,16 +1,9 @@
 #!/bin/bash
-order_information () {
-    order_id=`sshpass -p '46VNZk7zrWhm' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/test.sh $1 " | head -3 | tail -1 | grep -o '[[:digit:]]*'`
+pick_task_pps_order () {
+    echo "All Pick Task Associated on that PPS : $1"
     echo "<br>"
-    echo $order_id
-    echo "<br>"
-    echo "Order status from platform"
     echo '<pre>'
-    sshpass -p '46VNZk7zrWhm' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/updated_status.sh $1 "
-    echo '</pre>'
-    echo "Status on Core"
-    echo '<pre>'
-    sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript order_node get_by_id "[<<\"$order_id\">>]."
+    sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript ppstaskrec get_pick_tasks_by_pps [$1].
     echo '</pre>'
 }
 echo "Content-type: text/html"
@@ -19,7 +12,7 @@ echo ""
 echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
-echo '<title>Get order status from core and platform</title>'
+echo '<title>All pending pps task on PPS</title>'
 echo '</head>'
 echo '<body style="background-color:#B8B8B8">'
 
@@ -33,7 +26,7 @@ echo "<br>"
 
   echo "<form method=GET action=\"${SCRIPT}\">"\
        '<table nowrap>'\
-          '<tr><td>External_Service_Request_ID</TD><TD><input type="number" name="External_Service_Request_ID" size=12></td></tr>'\
+          '<tr><td>PPS_ID</TD><TD><input type="number" name="PPS_ID" size=12></td></tr>'\
 		  '</tr></table>'
 
   echo '<br><input type="submit" value="SUBMIT">'\
@@ -56,10 +49,11 @@ echo "<br>"
   else
    # No looping this time, just extract the data you are looking for with sed:
      XX=`echo "$QUERY_STRING" | sed -r 's/([^0-9]*([0-9]*)){1}.*/\2/'`
+	 YY=`echo "$QUERY_STRING" | sed -n 's/^.*record=\([^ ]*\).*$/\1/p'`
 	
-     echo "External_Service_Request_ID: " $XX
+     echo "PPS_ID: " $XX
      echo '<br>'
-     order_information $XX 
+     pick_task_pps_order $XX 
   fi
 echo '</body>'
 echo '</html>'

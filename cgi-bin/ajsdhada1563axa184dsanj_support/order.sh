@@ -56,7 +56,7 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/pick_instruction.
 #echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/change_order_to_created.sh" class="active"><b>Change Order Status to Created</b></a>'
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/abandon_order.sh" class="active"><b>Abandon Any Order</b></a>'
-echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/cancel_order.sh" class="active"><b>Cancel Order manually</b></a>'
+#echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/cancel_order.sh" class="active"><b>Cancel Order manually</b></a>'
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/sideline_order.sh" class="active"><b>Sideline Any Order</b></a>'
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/resume_order.sh" class="active"><b>Resume any Order</b></a>'

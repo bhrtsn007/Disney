@@ -54,6 +54,10 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/MSU/storage_info.sh" cl
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/MSU/available_storage.sh" class="active"><b>Available storage info</b></a>'
 
+echo '<div class="vertical-menu"></div><a href="/cgi-bin/MSU/put_block.sh" class="active"><b>Block rack from Put</b></a>'
+
+echo '<div class="vertical-menu"></div><a href="/cgi-bin/MSU/put_unblock.sh" class="active"><b>Unblock rack from Put</b></a>'
+
 #echo  '<div class="vertical-menu"></div><a href="/cgi-bin/MSU/add_rack.sh" class="active"><b>Add New Rack</b></a>'
 
 echo '</body>'
