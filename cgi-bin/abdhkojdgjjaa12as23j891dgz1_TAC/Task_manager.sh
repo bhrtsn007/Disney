@@ -81,6 +81,7 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/butlerstatus_error
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/clear_task_butler_ready.sh" class="active" target="_blank"><b>Clear Task of Butler and make status ready</b></a>' 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/clear_task_butler_dead.sh" class="active" target="_blank"><b>Clear Task of Butler and make status dead</b></a>' 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/clear_subtask_butler.sh"class="active" target="_blank"><b>Clear Sub Task of Butler</b></a>' 
+echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/storing_task.sh"class="active" target="_blank"><b>Storing task to created/complete</b></a>' 
 
 echo '</body>' 
 
