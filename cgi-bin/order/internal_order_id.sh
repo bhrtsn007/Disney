@@ -1,6 +1,6 @@
 #!/bin/bash
 internal_order_id () {
-    order_id=`sshpass -p '46VNZk7zrWhm' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/test.sh $1 " | head -3 | tail -1 | grep -o '[[:digit:]]*'`
+    order_id=`sshpass -p '2sMcZ3pdTcp5v' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/test.sh $1 " | head -3 | tail -1 | grep -o '[[:digit:]]*'`
     echo "<br>"
     echo "Your internal_order_id is:" $order_id
     echo "<br>"

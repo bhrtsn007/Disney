@@ -1,6 +1,6 @@
 #!/bin/bash
 cancel_some_order () {
-    order_id=`sshpass -p '46VNZk7zrWhm' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/test.sh $1 " | head -3 | tail -1 | grep -o '[[:digit:]]*'`
+    order_id=`sshpass -p '2sMcZ3pdTcp5v' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/test.sh $1 " | head -3 | tail -1 | grep -o '[[:digit:]]*'`
     echo "<br>"
     echo $order_id
     echo "<br>"
@@ -17,11 +17,11 @@ cancel_some_order () {
         echo "Cancelling Order from platform"
         echo '<pre>'
         sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript station_recovery send_notification "[{'order_notification',[<<\"$order_id\">>]}]."
-        #sshpass -p '46VNZk7zrWhm' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/update_SR_to_cancel.sh $1 " 
+        #sshpass -p '2sMcZ3pdTcp5v' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/update_SR_to_cancel.sh $1 " 
         echo '</pre>'
         echo "New Order status from platform"
         echo '<pre>'
-        sshpass -p '46VNZk7zrWhm' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/updated_status.sh $1 "
+        sshpass -p '2sMcZ3pdTcp5v' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/updated_status.sh $1 "
         echo '</pre>'
         echo "New Status on Core"
         echo '<pre>'

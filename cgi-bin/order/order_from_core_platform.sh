@@ -1,12 +1,12 @@
 #!/bin/bash
 order_information () {
-    order_id=`sshpass -p '46VNZk7zrWhm' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/test.sh $1 " | head -3 | tail -1 | grep -o '[[:digit:]]*'`
+    order_id=`sshpass -p '2sMcZ3pdTcp5v' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/test.sh $1 " | head -3 | tail -1 | grep -o '[[:digit:]]*'`
     echo "<br>"
     echo $order_id
     echo "<br>"
     echo "Order status from platform"
     echo '<pre>'
-    sshpass -p '46VNZk7zrWhm' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/updated_status.sh $1 "
+    sshpass -p '2sMcZ3pdTcp5v' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/updated_status.sh $1 "
     echo '</pre>'
     echo "Status on Core"
     echo '<pre>'

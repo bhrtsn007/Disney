@@ -15,7 +15,7 @@ change_status_from_storing () {
                 echo 'Upsert Flag is true and task is for Pick/Put, changing task status to created'
                 sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript butler_task_functions set_task_status "[{'picktask',<<\"$1\">>},{'pending','created'},'undefined']."
                 echo "Done"
-            elif[ "$upsert_flag" = false ] ; then
+            elif [ "$upsert_flag" = false ] ; then
                 echo 'upsert flag is false and task is Pick/Put, changing task status to complete'
                 echo "Make sure to put MSU to some storable location"
                 sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript butler_task_functions set_task_status "[{'picktask',<<\"$1\">>},'complete','undefined']."
@@ -27,7 +27,7 @@ change_status_from_storing () {
                 echo 'Upsert Flag is true and task is for Audit, changing task status to created'
                 sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript butler_task_functions set_task_status "[{'audittask',<<\"$1\">>},{'pending','created'},'undefined']."
                 echo "Done"
-            elif[ "$upsert_flag" = false ] ; then
+            elif [ "$upsert_flag" = false ] ; then
                 echo 'upsert flag is false and task is for Audit, changing task status to complete'
                 echo "Make sure to put MSU to some storable location"
                 sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript butler_task_functions set_task_status "[{'audittask',<<\"$1\">>},'complete','undefined']."
