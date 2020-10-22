@@ -62,6 +62,9 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/MSU/put_unblock.sh" cla
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/MSU/all_put_block_slot.sh" class="active"><b>Get all put block slots report</b></a>'
 
+echo '<div class="vertical-menu"></div><a href="/cgi-bin/MSU/unblock_put_block_slot.sh" class="active"><b>Unblock all put block slots</b></a>'
+
+
 echo'</div>'
 echo'</body>'
 echo '</html>'

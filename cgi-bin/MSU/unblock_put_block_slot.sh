@@ -1,10 +1,9 @@
 #!/bin/bash
-chargetaskrec_get_all () {
-    echo "All Charge Task in the System"
+unblock_slot () {
+    echo "Unblock all Slots which are put block due to space_not_available exception"
+    sudo /opt/butler_server/bin/butler_server rpcterms butler_test_functions free_all_put_blocked_slot
     echo "<br>"
-    echo '<pre>'
-    sudo /opt/butler_server/bin/butler_server rpcterms chargetaskrec get_all 
-    echo '</pre>'
+    echo "Done"      
 }
 echo "Content-type: text/html"
 echo ""
@@ -12,7 +11,7 @@ echo ""
 echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
-echo '<title>Get all Charge Task</title>'
+echo '<title>Unblock put block slots</title>'
 echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
 echo '<body>'
@@ -24,8 +23,7 @@ echo "<br>"
 echo "<br>"
 echo "<br>"
 
-
-chargetaskrec_get_all     
+unblock_slot
      
 echo'</div>'
 echo'</body>'

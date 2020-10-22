@@ -1,6 +1,8 @@
 #!/bin/bash
 put_block_slot () {
     echo "All Slots which are put block due to space_not_available exception"
+    echo "<br>"
+    echo "<br>"
     echo "Slots, Time, Put Order"
     sudo /opt/butler_server/bin/butler_server rpcterms butler_test_functions generate_put_blocked_report
     echo "<br>"
@@ -20,7 +22,7 @@ echo '<title>Get put block slot report</title>'
 echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
 echo '<body>'
-echo'<div class=container>'
+echo '<div class=container>'
 echo "<br>"
 echo "<br>"
 echo "<br>"
