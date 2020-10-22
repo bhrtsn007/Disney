@@ -24,6 +24,7 @@ echo 'a:hover, a:active {'\
       ' background-color: grey;'\
       '}' 
 echo '</style>' 
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>' 
 echo '<body style="background-color:#B8B8B8">' 
 echo '<div class="vertical-menu"><img src="https://scmtech.in/assets/images/grey.png" style="position:relative; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
@@ -73,8 +74,7 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/task_associated_to
 #################################################################
 #Update Butler task  
 #################################################################
-echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/change_status_to_created.sh" class="active" target="_blank"><b>Change Task status to created</b></a>' 
-echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/change_status_to_rack_picked.sh" class="active" target="_blank"><b>Change Task status to rack picked</b></a>' 
+echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/change_status_to_created.sh" class="active" target="_blank"><b>Change Task status to created</b></a>'  
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/change_status_to_storing.sh" class="active" target="_blank"><b>Change Task status to storing</b></a>' 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/change_status_to_complete.sh"class="active" target="_blank"><b>Change Task status to complete</b></a>' 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/butlerstatus_error.sh"  class="active" target="_blank"><b>Change Butler status to Error</b></a>' 
@@ -83,7 +83,8 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/clear_task_butler_
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/clear_subtask_butler.sh"class="active" target="_blank"><b>Clear Sub Task of Butler</b></a>' 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/storing_task.sh"class="active" target="_blank"><b>Storing task to created/complete</b></a>' 
 
-echo '</body>' 
+echo'</div>'
+echo'</body>' 
 
 echo '</html>'
 exit 0

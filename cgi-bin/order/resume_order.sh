@@ -3,7 +3,7 @@ resume_order () {
     echo "Order Id : <<'$1'>> going to be resume"
     echo "<br>"
     echo '<pre>'
-    sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript station_recovery resume_order "[<<\"$1\">>]."
+    sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript station_recovery resume_orders "[<<\"$1\">>]."
     echo '</pre>'
 
 }
@@ -14,10 +14,10 @@ echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 echo '<title>Resume Order</title>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
-echo '<img src="https://scmtech.in/assets/images/grey.png" style="position:fixed; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
+echo '<body>'
+echo'<div class=container>'
 echo "<br>"
 echo "<br>"
 echo "<br>"
@@ -55,7 +55,8 @@ echo "<br>"
      echo '<br>'
      resume_order $XX  
   fi
-echo '</body>'
+echo'</div>'
+echo'</body>'
 echo '</html>'
 
 exit 0

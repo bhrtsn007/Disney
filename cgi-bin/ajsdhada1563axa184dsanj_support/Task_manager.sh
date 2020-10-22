@@ -24,6 +24,7 @@ echo 'a:hover, a:active {'\
       ' background-color: grey;'\
       '}' 
 echo '</style>' 
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>' 
 echo '<body style="background-color:#B8B8B8">' 
 echo '<div class="vertical-menu"><img src="https://scmtech.in/assets/images/grey.png" style="position:relative; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
@@ -84,7 +85,8 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/clear_subtask_butl
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/storing_task.sh"class="active" target="_blank"><b>Storing task to created/complete</b></a>' 
 
 
-echo '</body>' 
+echo'</div>'
+echo'</body>' 
 
 echo '</html>'
 exit 0

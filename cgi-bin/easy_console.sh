@@ -39,9 +39,9 @@ echo  'a:hover, a:active {'\
       '}'
 
 echo '</style>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
+echo '<body>'
 echo '<div class="vertical-menu"><img src="https://scmtech.in/assets/images/grey.png" style="position:relative; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
 
 echo "<br>"
@@ -88,7 +88,8 @@ else
   echo '<div class="vertical-menu"><h3 style="text-align:center">Wrong Username and Password</h3>'
 fi
 
-echo '</body>'
+echo'</div>'
+echo'</body>'
 echo '</html>'
 
 exit 0

@@ -30,9 +30,9 @@ echo  'a:hover, a:active {'\
       '}'
 	  
 echo '</style>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
+echo '<body>'
 echo '<div class="vertical-menu"><img src="https://scmtech.in/assets/images/grey.png" style="position:relative; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
 
 echo "<br>"
@@ -67,7 +67,8 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/butler/init_all_butler.
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/butler/reservation_info.sh" class="active"><b>Reservation Info</b></a>'
 
-echo '</body>'
+echo'</div>'
+echo'</body>'
 echo '</html>'
 
 exit 0

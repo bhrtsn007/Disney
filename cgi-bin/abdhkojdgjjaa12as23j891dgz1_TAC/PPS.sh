@@ -28,9 +28,9 @@ echo  'a:hover, a:active {'\
       '}'
 
 echo '</style>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
+echo '<body>'
 echo '<div class="vertical-menu"><img src="https://scmtech.in/assets/images/grey.png" style="position:relative; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
 
 echo "<br>"
@@ -70,7 +70,8 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/pps/dock_station_reset_
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/pps/station_help.sh" class="active"><b>Station recovery Help</b></a>'
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/pps/system_idle.sh" class="active"><b>Check system Idle</b></a>'
 
-echo '</body>'
+echo'</div>'
+echo'</body>'
 echo '</html>'
 
 exit 0

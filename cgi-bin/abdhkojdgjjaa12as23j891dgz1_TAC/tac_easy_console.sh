@@ -9,7 +9,8 @@ echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 echo '<title>Easy Console</title>'
-#echo '</head>'
+#echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
+echo '</head>'
 #echo '<body>'
 echo '<style>'
 
@@ -29,11 +30,11 @@ echo  'a:hover, a:active {'\
       '}'
 
 echo '</style>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
+echo '<body>'
 #echo '<h1 style="color:white">TOOL</h1>'
-echo '<img src="https://scmtech.in/assets/images/grey.png" style="position:fixed; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
+echo'<div class=container>'
 #echo '<p style="color:white">Here you can do whatever you want:</p>'
 
 echo '<a href="butler.sh" target="_blank" title="Butler Related Command"><img src="http://greyorange.miscapp.in/html/img/products/product_butler@2x.png" style="position:fixed; TOP:150px; LEFT:95px; WIDTH:190px; HEIGHT:120px;"></img></a>'
@@ -53,7 +54,8 @@ echo '<a href="order.sh" target="_blank" title="Order Related Related Command"><
 
 echo '<div style="position: fixed; top:560px; left:510px; width:200px"><a href="charger.sh"  target="_blank">Charger Related Command</a>'
 echo '<a href="charger.sh" target="_blank" title="Charger Related Command"><img src="https://www.greyorange.com/storage/images/EZ1xexzxWYx0gfKkHx9xnBzXPXo7kV9QvjKsSoWN.png" style="position:fixed; TOP:325px; LEFT:460px; WIDTH:290px; HEIGHT:220px;"></img></a>'
-echo '</body>'
+echo'</div>'
+echo'</body>'
 echo '</html>'
 
 exit 0

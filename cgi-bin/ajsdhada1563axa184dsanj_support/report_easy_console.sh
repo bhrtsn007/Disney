@@ -28,9 +28,9 @@ echo  'a:hover, a:active {'\
       '}'
 
 echo '</style>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
+echo '<body>'
 echo '<div class="vertical-menu"><img src="https://scmtech.in/assets/images/grey.png" style="position:relative; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
 
 echo "<br>"
@@ -40,7 +40,6 @@ echo "<br>"
 echo "<br>"
 echo "<br>"
 
-echo '<div class="vertical-menu"></div><a href="/cgi-bin/MSU/sku_inventory.sh" class="active"><b>Get Inventory information from SKU ID</b></a>'
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/internal_order_id.sh" class="active"><b>Get Internal Order ID</b></a>'
 
@@ -52,7 +51,8 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/temp_unfulfillabl
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/specific_order.sh" class="active"><b>Order Details(External Id from Internal ID)</b></a>'
 
-echo '</body>'
+echo'</div>'
+echo'</body>'
 echo '</html>'
 
 exit 0
