@@ -26,7 +26,7 @@ echo '<title>PPS INFO BY ID</title>'
 echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
 echo '<body>'
-echo'<div class=container>'
+echo '<div class=container>'
 echo "<br>"
 echo "<br>"
 echo "<br>"
@@ -65,8 +65,8 @@ echo "<br>"
      pps_info_get_by_id $XX    
      
   fi
-echo'</div>'
-echo'</body>'
+echo '</div>'
+echo '</body>'
 echo '</html>'
 
 exit 0

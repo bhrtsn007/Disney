@@ -16,7 +16,7 @@ echo '<title>Specific PPSbinrec</title>'
 echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
 echo '<body>'
-echo'<div class=container>'
+echo '<div class=container>'
 echo "<br>"
 echo "<br>"
 echo "<br>"
@@ -58,8 +58,8 @@ echo "<br>"
      echo '<br>'
 	   ppsbinrec_get_by_id $XX $YY
   fi
-echo'</div>'
-echo'</body>'
+echo '</div>'
+echo '</body>'
 echo '</html>'
 
 exit 0

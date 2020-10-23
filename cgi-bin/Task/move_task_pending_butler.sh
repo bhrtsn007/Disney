@@ -24,7 +24,7 @@ echo '<title>All move task pending on one butler</title>'
 echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
 echo '<body>'
-echo'<div class=container>'
+echo '<div class=container>'
 echo "<br>"
 echo "<br>"
 echo "<br>"
@@ -66,8 +66,8 @@ echo "<br>"
      echo '<br>'
      move_task_pending_butler $XX $YY   
   fi
-echo'</div>'
-echo'</body>'
+echo '</div>'
+echo '</body>'
 echo '</html>'
 
 exit 0

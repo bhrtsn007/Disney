@@ -27,8 +27,8 @@ echo "<br>"
 
 chargetaskrec_get_all     
      
-echo'</div>'
-echo'</body>'
+echo '</div>'
+echo '</body>'
 echo '</html>'
 
 exit 0

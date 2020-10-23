@@ -18,7 +18,7 @@ echo '<title>Get Inventory Detail from SKU_ID</title>'
 echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
 echo '<body>'
-echo'<div class=container>'
+echo '<div class=container>'
 echo "<br>"
 echo "<br>"
 echo "<br>"
@@ -56,8 +56,8 @@ echo "<br>"
      echo '<br>'
      sku_information $XX 
   fi
-echo'</div>'
-echo'</body>'
+echo '</div>'
+echo '</body>'
 echo '</html>'
 
 exit 0

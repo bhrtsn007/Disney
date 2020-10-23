@@ -69,8 +69,8 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/pps/pps_sanity.sh" clas
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/pps/station_help.sh" class="active"><b>Station recovery Help</b></a>'
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/pps/system_idle.sh" class="active"><b>Check system Idle</b></a>'
-echo'</div>'
-echo'</body>'
+echo '</div>'
+echo '</body>'
 echo '</html>'
 
 exit 0

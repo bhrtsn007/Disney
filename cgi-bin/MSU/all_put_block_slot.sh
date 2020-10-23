@@ -32,8 +32,8 @@ echo "<br>"
 
 put_block_slot
      
-echo'</div>'
-echo'</body>'
+echo '</div>'
+echo '</body>'
 echo '</html>'
 
 exit 0

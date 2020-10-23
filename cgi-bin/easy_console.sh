@@ -88,8 +88,8 @@ else
   echo '<div class="vertical-menu"><h3 style="text-align:center">Wrong Username and Password</h3>'
 fi
 
-echo'</div>'
-echo'</body>'
+echo '</div>'
+echo '</body>'
 echo '</html>'
 
 exit 0

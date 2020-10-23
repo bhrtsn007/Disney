@@ -51,8 +51,8 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/temp_unfulfillabl
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/specific_order.sh" class="active"><b>Order Details(External Id from Internal ID)</b></a>'
 
-echo'</div>'
-echo'</body>'
+echo '</div>'
+echo '</body>'
 echo '</html>'
 
 exit 0

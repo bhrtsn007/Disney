@@ -25,8 +25,8 @@ echo "<br>"
 
 unblock_slot
      
-echo'</div>'
-echo'</body>'
+echo '</div>'
+echo '</body>'
 echo '</html>'
 
 exit 0

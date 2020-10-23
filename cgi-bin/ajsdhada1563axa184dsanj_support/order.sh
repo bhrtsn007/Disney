@@ -67,8 +67,8 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/order_from_core_p
 #echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/unfulfillable_order_report.sh" class="active"><b>Get Unfulfillable Order Report</b></a>'
 #echo '<div class="vertical-menu"></div><a href="/cgi-bin/order/process_unfulfillable_order.sh" class="active"><b>Process Unfulfillable Order</b></a>'
 
-echo'</div>'
-echo'</body>'
+echo '</div>'
+echo '</body>'
 echo '</html>'
 
 exit 0

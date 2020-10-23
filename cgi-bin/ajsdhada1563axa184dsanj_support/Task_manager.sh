@@ -85,8 +85,8 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/clear_subtask_butl
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/Task/storing_task.sh"class="active" target="_blank"><b>Storing task to created/complete</b></a>' 
 
 
-echo'</div>'
-echo'</body>' 
+echo '</div>'
+echo '</body>' 
 
 echo '</html>'
 exit 0

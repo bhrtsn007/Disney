@@ -33,7 +33,7 @@ echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 echo '<title>Fix Charger Error</title>'
 echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body>'echo'<div class=container>'
+echo '<body>'echo '<div class=container>'
 
 echo "<br>"
 echo "<br>"
@@ -77,8 +77,8 @@ echo "<br>"
      
      
   fi
-echo'</div>'
-echo'</body>'
+echo '</div>'
+echo '</body>'
 echo '</html>'
 
 exit 0
